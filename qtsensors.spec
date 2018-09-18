@@ -4,7 +4,7 @@
 #
 Name     : qtsensors
 Version  : 5.11.2
-Release  : 10
+Release  : 11
 URL      : http://download.qt.io/official_releases/qt/5.11/5.11.2/submodules/qtsensors-everywhere-src-5.11.2.tar.xz
 Source0  : http://download.qt.io/official_releases/qt/5.11/5.11.2/submodules/qtsensors-everywhere-src-5.11.2.tar.xz
 Summary  : No detailed summary available
@@ -69,7 +69,7 @@ test -r config.log && cat config.log
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1537308061
+export SOURCE_DATE_EPOCH=1537311747
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/qtsensors
 cp LICENSE.FDL %{buildroot}/usr/share/doc/qtsensors/LICENSE.FDL
