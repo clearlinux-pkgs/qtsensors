@@ -4,7 +4,7 @@
 #
 Name     : qtsensors
 Version  : 5.14.2
-Release  : 23
+Release  : 24
 URL      : https://download.qt.io/official_releases/qt/5.14/5.14.2/submodules/qtsensors-everywhere-src-5.14.2.tar.xz
 Source0  : https://download.qt.io/official_releases/qt/5.14/5.14.2/submodules/qtsensors-everywhere-src-5.14.2.tar.xz
 Summary  : No detailed summary available
@@ -81,7 +81,7 @@ test -r config.log && cat config.log
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1586207080
+export SOURCE_DATE_EPOCH=1586280369
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/qtsensors
 cp %{_builddir}/qtsensors-everywhere-src-5.14.2/LICENSE.FDL %{buildroot}/usr/share/package-licenses/qtsensors/61907422fefcd2313a9b570c31d203a6dbebd333
@@ -90,6 +90,8 @@ cp %{_builddir}/qtsensors-everywhere-src-5.14.2/LICENSE.GPL3 %{buildroot}/usr/sh
 cp %{_builddir}/qtsensors-everywhere-src-5.14.2/LICENSE.GPL3-EXCEPT %{buildroot}/usr/share/package-licenses/qtsensors/e93757aefa405f2c9a8a55e780ae9c39542dfc3a
 cp %{_builddir}/qtsensors-everywhere-src-5.14.2/LICENSE.LGPL3 %{buildroot}/usr/share/package-licenses/qtsensors/f45ee1c765646813b442ca58de72e20a64a7ddba
 %make_install
+## Remove excluded files
+rm -f %{buildroot}/usr/lib64/cmake/Qt5Sensors/Qt5Sensors_QCounterGesturePlugin.cmake
 
 %files
 %defattr(-,root,root,-)
@@ -228,7 +230,6 @@ cp %{_builddir}/qtsensors-everywhere-src-5.14.2/LICENSE.LGPL3 %{buildroot}/usr/s
 /usr/lib64/cmake/Qt5Sensors/Qt5SensorsConfigVersion.cmake
 /usr/lib64/cmake/Qt5Sensors/Qt5Sensors_IIOSensorProxySensorPlugin.cmake
 /usr/lib64/cmake/Qt5Sensors/Qt5Sensors_LinuxSensorPlugin.cmake
-/usr/lib64/cmake/Qt5Sensors/Qt5Sensors_QCounterGesturePlugin.cmake
 /usr/lib64/cmake/Qt5Sensors/Qt5Sensors_QShakeSensorGesturePlugin.cmake
 /usr/lib64/cmake/Qt5Sensors/Qt5Sensors_QtSensorGesturePlugin.cmake
 /usr/lib64/cmake/Qt5Sensors/Qt5Sensors_genericSensorPlugin.cmake
