@@ -4,7 +4,7 @@
 #
 Name     : qtsensors
 Version  : 5.15.2
-Release  : 27
+Release  : 28
 URL      : https://download.qt.io/official_releases/qt/5.15/5.15.2/submodules/qtsensors-everywhere-src-5.15.2.tar.xz
 Source0  : https://download.qt.io/official_releases/qt/5.15/5.15.2/submodules/qtsensors-everywhere-src-5.15.2.tar.xz
 Summary  : No detailed summary available
@@ -25,6 +25,7 @@ BuildRequires : pkgconfig(Qt5Svg)
 BuildRequires : pkgconfig(Qt5Test)
 BuildRequires : pkgconfig(Qt5Widgets)
 BuildRequires : pkgconfig(Qt5Xml)
+Patch1: qtsensors-stable-branch.patch
 
 %description
 No detailed description available
@@ -69,6 +70,7 @@ license components for the qtsensors package.
 %prep
 %setup -q -n qtsensors-everywhere-src-5.15.2
 cd %{_builddir}/qtsensors-everywhere-src-5.15.2
+%patch1 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
@@ -81,7 +83,7 @@ test -r config.log && cat config.log
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1630805795
+export SOURCE_DATE_EPOCH=1646410871
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/qtsensors
 cp %{_builddir}/qtsensors-everywhere-src-5.15.2/LICENSE.FDL %{buildroot}/usr/share/package-licenses/qtsensors/61907422fefcd2313a9b570c31d203a6dbebd333
@@ -91,7 +93,7 @@ cp %{_builddir}/qtsensors-everywhere-src-5.15.2/LICENSE.GPL3-EXCEPT %{buildroot}
 cp %{_builddir}/qtsensors-everywhere-src-5.15.2/LICENSE.LGPL3 %{buildroot}/usr/share/package-licenses/qtsensors/f45ee1c765646813b442ca58de72e20a64a7ddba
 %make_install
 ## Remove excluded files
-rm -f %{buildroot}/usr/lib64/cmake/Qt5Sensors/Qt5Sensors_QCounterGesturePlugin.cmake
+rm -f %{buildroot}*/usr/lib64/cmake/Qt5Sensors/Qt5Sensors_QCounterGesturePlugin.cmake
 
 %files
 %defattr(-,root,root,-)
