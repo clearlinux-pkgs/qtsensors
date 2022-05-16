@@ -1,15 +1,17 @@
 Antti Kokko (1):
       Add changes file for Qt 5.15.2
 
-Jani Heikkinen (1):
+Jani Heikkinen (2):
+      Bump version
       Bump version
 
 Juha Vuolle (1):
       Android rotation sensor value and datarate fix
 
-Tarja Sundqvist (2):
+Tarja Sundqvist (3):
       Update commercial license headers
       Revert "Update commercial license headers"
+      Merge remote-tracking branch 'origin/tqtc/lts-5.15.4' into tqtc/lts-5.15-opensource
 
 diff --git a/src/plugins/sensors/android/androidrotation.cpp b/src/plugins/sensors/android/androidrotation.cpp
 index c1d141a..068d305 100644
