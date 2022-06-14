@@ -14,7 +14,7 @@ Tarja Sundqvist (3):
       Merge remote-tracking branch 'origin/tqtc/lts-5.15.4' into tqtc/lts-5.15-opensource
 
 diff --git a/src/plugins/sensors/android/androidrotation.cpp b/src/plugins/sensors/android/androidrotation.cpp
-index c1d141a..068d305 100644
+index c1d141a0..068d305f 100644
 --- a/src/plugins/sensors/android/androidrotation.cpp
 +++ b/src/plugins/sensors/android/androidrotation.cpp
 @@ -48,12 +48,41 @@ AndroidRotation::AndroidRotation(int type, QSensor *sensor, QObject *parent)
@@ -66,7 +66,7 @@ index c1d141a..068d305 100644
              qFuzzyCompare(m_reader.y(), ry) &&
              qFuzzyCompare(m_reader.z(), rz)) {
 diff --git a/src/plugins/sensors/android/sensoreventqueue.h b/src/plugins/sensors/android/sensoreventqueue.h
-index 77bf05c..e608705 100644
+index 77bf05c6..e6087059 100644
 --- a/src/plugins/sensors/android/sensoreventqueue.h
 +++ b/src/plugins/sensors/android/sensoreventqueue.h
 @@ -125,8 +125,9 @@ public:
