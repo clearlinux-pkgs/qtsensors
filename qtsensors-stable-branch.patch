@@ -8,11 +8,38 @@ Jani Heikkinen (2):
 Juha Vuolle (1):
       Android rotation sensor value and datarate fix
 
-Tarja Sundqvist (3):
+Jukka Passi (1):
+      Android: Fix build error issue in examples
+
+Tarja Sundqvist (5):
       Update commercial license headers
       Revert "Update commercial license headers"
+      Bump version
       Merge remote-tracking branch 'origin/tqtc/lts-5.15.4' into tqtc/lts-5.15-opensource
+      Merge remote-tracking branch 'origin/tqtc/lts-5.15.5' into tqtc/lts-5.15-opensource
 
+diff --git a/examples/sensors/grue/lib/lib.pri b/examples/sensors/grue/lib/lib.pri
+index 0e3da252..675914bc 100644
+--- a/examples/sensors/grue/lib/lib.pri
++++ b/examples/sensors/grue/lib/lib.pri
+@@ -3,4 +3,5 @@ INCLUDEPATH += $$PWD
+ macos: LIBS += -L$$OUT_PWD/../grue_app.app/Contents/Frameworks
+ else: LIBS += -L$$OUT_PWD/..
+ 
+-LIBS += -lgruesensor
++android: LIBS += -lgruesensor_$${QT_ARCH}
++else: LIBS += -lgruesensor
+diff --git a/examples/sensors/grue/lib/lib.pro b/examples/sensors/grue/lib/lib.pro
+index cc10e5c4..197d91c8 100644
+--- a/examples/sensors/grue/lib/lib.pro
++++ b/examples/sensors/grue/lib/lib.pro
+@@ -1,5 +1,6 @@
+ TEMPLATE = lib
+ TARGET = gruesensor
++android: TARGET = gruesensor_$${QT_ARCH}
+ 
+ macos: DESTDIR = ../grue_app.app/Contents/Frameworks
+ else: DESTDIR = $$OUT_PWD/..
 diff --git a/src/plugins/sensors/android/androidrotation.cpp b/src/plugins/sensors/android/androidrotation.cpp
 index c1d141a0..068d305f 100644
 --- a/src/plugins/sensors/android/androidrotation.cpp
